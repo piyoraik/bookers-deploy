@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="row">
+    <div class='col-xs-3'>
+
+<h2>User info</h2>
+<%= attachment_image_tag @user, :profile_image, :fill, 150, 150, format: 'jpeg',fallback: "no-image.png" ,size:'150x150'%>
+
+<table class="table table-hover">
+
+  <tbody>
+    <tr>
+      <td>name</td>
+      <td><%= @user.name %></td>
+    </tr>
+    <tr>
+    <td>introduction</td>
+    <td><%= @user.introduction %></td>
+    </tr>
+    </tbody>
+
+    </table>
+
+      <%= link_to "", edit_user_path(@user.id), class:"col-xs-12 btn btn-default glyphicon glyphicon-wrench" %>
+
+<br>
+
+<%= render 'layouts/new_book', book: @book %>
+
+</div>
+<div class="col-xs-9">
+
+<h2>Book detail</h2>
+
+  <table class="table"> 
+
+		<tbody>
+      <tr>
+				<th><%= attachment_image_tag @book_show.user, :profile_image, :fill, 60, 60, format: 'jpeg', fallback:"no-image.png",size:'60x60' %></th>
+        <th><%= link_to @user.name, user_path(@user.id)%>
+			  <th><%= @book_show.title %></th>
+				<th><%= @book_show.body %></th>
+
+      <% if current_user.id == @book_show.user_id %>
+        <td><%= link_to "edit", edit_book_path(@book_show.id), class:"btn-sm btn-success" %></td>
+				<td><%= link_to "destroy", book_path(@book_show.id), method: :delete, class:"btn-sm btn-danger","data-confirm" =>"本当に消しますか？" %>
+        </td>
+      <% end %>
+			</tr>
+		</tbody>
+	</table>
+  </div>
+  </div>
