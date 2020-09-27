@@ -11,7 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     
     services:
-      container: ruby:2.6.3
+      container: 
+        image: ruby:2.6.3
       
     steps:
       - uses: actions/checkout@v2
