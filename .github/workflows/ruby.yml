@@ -10,8 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: ruby:2.6.6
-#       env:
-#          BUNDLER_VERSION: 2.1.4 
     
     steps:
       - uses: actions/checkout@v2
@@ -19,3 +17,16 @@ jobs:
         run: gem install bundler:2.1.4
       - name: setup bundle
         run: bundle install
+      - name: Install SSH key
+        uses: webfactory/ssh-agent@v0.1.1
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }} # 1.で設定したsecretsを呼び出して鍵配置
+      - name: Install Libmysqlclient-dev
+        run: |
+          sudo apt-get install libmysqlclient-dev
+      - name: Bundle install
+        run: |
+          bundle install
+      - name: Deploy Production
+        run: |
+          bundle exec cap production deploy
