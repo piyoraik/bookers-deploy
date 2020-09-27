@@ -1,13 +1,12 @@
 server '3.95.177.35',
    user: "ec2-user",
    roles: %w{web db app},
-   ssh_options: {
-       port: 22,
-       user: "ec2-user",
-       keys: %w(~/.ssh/webcamp.pem),
-       forward_agent: true
+   set :ssh_options, {
+    keys: %w(/home/runner/.ssh/id_rsa /home/runner/.ssh/id_ed25519),
+    forward_agent: false,
+    auth_methods: %w(publickey),
+    port: 10024
    }
-
 # server-based syntax
 # ======================
 # Defines a single server with a list of roles and multiple properties.
