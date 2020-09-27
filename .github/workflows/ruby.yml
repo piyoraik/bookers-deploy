@@ -8,6 +8,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    container:
+      image: ruby:2.6.6
+    
     steps:
     - name: Checkout Repo
       uses: actions/checkout@master
