@@ -14,10 +14,10 @@ jobs:
       uses: actions/checkout@master
       with:
         ref: master
-    - name: Set up Ruby 2.6
+    - name: Set up Ruby 2.5
       uses: actions/setup-ruby@v1
       with:
-        ruby-version: 2.6.3
+        ruby-version: 2.5.7
     - name: Install SSH key
       uses: webfactory/ssh-agent@v0.1.1
       with:
