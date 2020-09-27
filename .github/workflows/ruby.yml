@@ -1,9 +1,10 @@
 name: Ruby-Deploy-to-Production
 
-on: 
-  release:
-    types: [published]
-  repository_dispatch:
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [master, dev]
 
 jobs:
   build:
