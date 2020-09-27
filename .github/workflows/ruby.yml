@@ -1,5 +1,4 @@
-name: Ruby-Deploy-to-Production
-
+name: Capistrano
 on:
   push:
     branches: [ master ]
@@ -15,7 +14,7 @@ jobs:
         image: ruby:2.6.3
       
     steps:
-      - uses: actions/checkout@v2
-      - name: setup bundle
-        run: bundle install
-   
+      - uses: actions/checkout@v1
+      - name: Prepare bundler
+        run: |
+          bundle install
