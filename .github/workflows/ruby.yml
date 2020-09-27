@@ -24,6 +24,9 @@ jobs:
     - name: Install Libmysqlclient-dev
       run: |
         sudo apt-get install libmysqlclient-dev
+    - name: Bundle Update
+      run: |
+        bundle update --bundler
     - name: Bundle install
       run: |
         bundle install
