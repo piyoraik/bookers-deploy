@@ -15,5 +15,7 @@ jobs:
     
     steps:
       - uses: actions/checkout@v2
+      - name: bundle update
+        run: gem install bundler:2.1.4
       - name: setup bundle
         run: bundle install
