@@ -25,6 +25,9 @@ jobs:
     - name: Install Libmysqlclient-dev
       run: |
         sudo apt-get install libmysqlclient-dev
+    - name: bundle update
+      run: |
+        gem install bundler：2.1.4
     - name: Bundle install
       run: |
         bundle install
